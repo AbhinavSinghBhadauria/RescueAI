@@ -1,0 +1,30 @@
+{
+  "profile": {
+    "name": "Aarav Mehta",
+    "bloodGroup": "O+",
+    "age": 27,
+    "conditions": ["Mild asthma"],
+    "allergies": ["Peanuts", "Penicillin"],
+    "language": "English",
+    "model": "Qwen1.5-0.5B-Chat (on-device, WebGPU/WASM)",
+    "storageUsed": "3.2 GB / 8 GB"
+  },
+  "contacts": [
+    { "id": "c1", "name": "Mom", "relation": "Mother", "phone": "+919812345601" },
+    { "id": "c2", "name": "Dr. Rao", "relation": "Family Physician", "phone": "+919812345602" },
+    { "id": "c3", "name": "Amit", "relation": "Neighbour", "phone": "+919812345603" }
+  ],
+  "medicine": [
+    { "id": "m1", "name": "Paracetamol 500mg", "use": "Fever, mild pain", "stock": "In stock", "color": "#22C55E" },
+    { "id": "m2", "name": "ORS Sachets", "use": "Dehydration", "stock": "In stock", "color": "#22C55E" },
+    { "id": "m3", "name": "Antiseptic Solution", "use": "Wound cleaning", "stock": "Low stock", "color": "#F59E0B" },
+    { "id": "m4", "name": "Antihistamine", "use": "Allergic reactions", "stock": "In stock", "color": "#22C55E" },
+    { "id": "m5", "name": "Burn Gel", "use": "Minor burns", "stock": "Out of stock", "color": "#FF4D4D" }
+  ],
+  "history": [
+    { "id": "h1", "type": "Guide", "title": "CPR guide viewed offline", "date": "2026-07-14T21:40:00.000Z" }
+  ],
+  "notifications": [
+    { "id": "n1", "title": "Backend connected", "body": "RescueAI is now syncing with your local server.", "priority": "success", "unread": true, "time": "now" }
+  ]
+}
