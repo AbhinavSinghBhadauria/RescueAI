@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #0B0C0E;
+  color: #EDEAE3;
+  font-family: 'Public Sans', sans-serif;
+  overscroll-behavior: none;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Surface system ---------- */
+/* Quieter than a typical "glassmorphism" card: less blur, less brightness,
+   closer to a matte instrument panel than a frosted sheet of glass. */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(110%);
+  -webkit-backdrop-filter: blur(14px) saturate(110%);
+  box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+}
+
+/* A single hairline in the signature accent, not a rainbow gradient ring */
+.gradient-border { position: relative; border-radius: 14px; }
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: rgba(214,71,44,0.45);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---------- Background: quiet instrument-panel field, not aurora mesh ---------- */
+.aurora-bg { position: fixed; inset: 0; z-index: -10; overflow: hidden; background: #0B0C0E; }
+.aurora-bg .blob { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: 0.28; animation: blobMove 22s ease-in-out infinite; will-change: transform; }
+
+.grid-field {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black 40%, transparent 90%);
+}
+
+.noise-overlay {
+  position: fixed; inset: 0; z-index: -5; pointer-events: none;
+  opacity: 0.03; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.particle { position: absolute; border-radius: 50%; background: rgba(237,234,227,0.35); animation: float 6s ease-in-out infinite; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid #D6472C;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.font-display { font-family: 'Oswald', sans-serif; }
+.font-mono-ui { font-family: 'IBM Plex Mono', monospace; }
+
+/* Form fields don't reliably inherit the page's off-white text color from
+   the browser's UA stylesheet — force it explicitly so typed text is
+   never black-on-dark. */
+input, textarea, select {
+  color: #EDEAE3;
+  accent-color: #D6472C;
+}
+input::placeholder, textarea::placeholder {
+  color: #8C8D91;
+  opacity: 1;
+}
+
+/* Condensed, wide-tracked caps for eyebrows/labels — signage vocabulary */
+.label-caps {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}

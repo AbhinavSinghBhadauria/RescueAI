@@ -1,0 +1,18 @@
+{
+  "profile": {
+    "name": "",
+    "bloodGroup": "",
+    "age": "",
+    "conditions": [],
+    "allergies": [],
+    "language": "English",
+    "model": "Not loaded yet — visit AI Assistant",
+    "storageUsed": "Unknown — visit Home"
+  },
+  "contacts": [],
+  "medicine": [],
+  "history": [],
+  "notifications": [
+    { "id": "n1", "title": "Backend connected", "body": "RescueAI is now syncing with your local server. Fill in your profile to get started.", "priority": "success", "unread": true, "time": "now" }
+  ]
+}
